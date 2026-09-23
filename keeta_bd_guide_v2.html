@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Keeta Power Bank 兼职培训" />
+  <title>Keeta Power Bank｜兼职 BD 培训</title>
+  <style>
+    :root{
+      --bg:#f6fbfb;--panel:#ffffff;--text:#182326;--muted:#607276;--brand:#09a89a;--brand2:#17c4ad;
+      --brandSoft:#e6f8f4;--blue:#2b77d0;--blueSoft:#eaf4ff;--orange:#f3a51b;--orangeSoft:#fff5df;
+      --rose:#c06b73;--roseSoft:#fff0f2;--line:#dce8e8;--shadow:0 10px 30px rgba(18,64,66,.08);
+      --radius:18px;--danger:#b83232;--dangerSoft:#fff0ef;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.72}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .topbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .topbar-inner{max-width:1260px;margin:0 auto;padding:10px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .brand-mark{width:48px;height:48px;border-radius:14px;background:#fff;border:1px solid #efe28b;display:grid;place-items:center;box-shadow:0 7px 18px rgba(0,0,0,.08);overflow:hidden;flex:0 0 auto}
+    .brand-mark img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-logo{width:92px;height:92px;border-radius:20px;display:block;object-fit:cover;border:1px solid #efe28b;box-shadow:0 12px 24px rgba(0,0,0,.08);background:#fff}
+    .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .lang-btn,.util-btn{border:1px solid var(--line);background:#fff;color:var(--text);padding:8px 11px;border-radius:10px;cursor:pointer;font-weight:700}
+    .lang-btn.active{border-color:var(--brand);background:var(--brandSoft);color:#08766c}
+    .util-btn:hover,.lang-btn:hover{transform:translateY(-1px)}
+    .hero{background:linear-gradient(145deg,#dff8f7 0%,#eaf8ff 56%,#fff 100%);border-bottom:1px solid var(--line)}
+    .hero-inner{max-width:1260px;margin:0 auto;padding:62px 20px 52px;display:grid;grid-template-columns:1.4fr .9fr;gap:28px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #cfe7e5;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:800;color:#237970}
+    .hero h1{font-size:clamp(32px,5vw,56px);line-height:1.1;margin:18px 0 14px;letter-spacing:-1.2px}
+    .hero p{font-size:18px;color:#466165;max-width:780px;margin:0 0 22px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .primary{background:var(--brand);color:#fff;border:0;padding:12px 18px;border-radius:12px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(9,168,154,.22)}
+    .secondary{background:#fff;color:var(--text);border:1px solid var(--line);padding:12px 18px;border-radius:12px;font-weight:800;cursor:pointer}
+    .hero-card{background:rgba(255,255,255,.94);border:1px solid #d3eae8;border-radius:24px;padding:24px;box-shadow:var(--shadow)}
+    .hero-metric{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    .metric{background:#f8fcfc;border:1px solid var(--line);border-radius:14px;padding:14px}
+    .metric b{display:block;font-size:25px;color:#08766c}
+    .metric span{font-size:13px;color:var(--muted)}
+    .page{max-width:1260px;margin:0 auto;padding:28px 18px 70px;display:grid;grid-template-columns:250px 1fr;gap:24px}
+    .toc{position:sticky;top:74px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;max-height:calc(100vh - 92px);overflow:auto;box-shadow:0 8px 24px rgba(18,64,66,.05)}
+    .toc-title{font-size:13px;color:var(--muted);font-weight:800;margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+    .toc a{display:block;padding:8px 10px;border-radius:10px;color:#40585c;font-size:14px}
+    .toc a:hover{background:var(--brandSoft);color:#08766c}
+    main{min-width:0}
+    section{scroll-margin-top:86px;margin-bottom:22px}
+    .section-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 8px 22px rgba(18,64,66,.045)}
+    .section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:18px}
+    .section-index{width:36px;height:36px;border-radius:12px;background:var(--brandSoft);color:#08766c;font-weight:900;display:grid;place-items:center;flex:0 0 auto}
+    .title-wrap{display:flex;gap:12px;align-items:flex-start}
+    h2{font-size:26px;line-height:1.3;margin:1px 0 0}
+    h3{font-size:19px;margin:24px 0 10px}
+    p{margin:8px 0}
+    .lead{font-size:17px;color:#40585c}
+    .quote{border-left:4px solid var(--brand);background:var(--brandSoft);padding:14px 16px;border-radius:10px;margin:16px 0;font-weight:700;color:#285d58}
+    .note{padding:13px 15px;border-radius:12px;border:1px solid #f0d8a7;background:var(--orangeSoft);color:#72571c;margin:14px 0}
+    .danger-note{padding:13px 15px;border-radius:12px;border:1px solid #efc2be;background:var(--dangerSoft);color:#7a3131;margin:14px 0}
+    .grid{display:grid;gap:14px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .feature{border:1px solid var(--line);border-radius:16px;padding:17px;background:#fff}
+    .feature b{display:block;margin-bottom:6px}
+    .feature .small{color:var(--muted);font-size:14px}
+    .tag{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:900;margin-left:6px;vertical-align:middle}
+    .tag-now{background:#dcf6ef;color:#087663}.tag-plan{background:#fff1d5;color:#8a5e00}.tag-rule{background:#eaf3ff;color:#1c63a6}
+    table{width:100%;border-collapse:collapse;margin:14px 0 4px;background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+    th,td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+    th{background:#f2f8f8;font-size:14px;color:#3c5a5e}
+    tr:last-child td{border-bottom:0}
+    .money{font-weight:900;color:#08766c}
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+    .pill{padding:7px 10px;border-radius:999px;background:#f3f8f8;border:1px solid var(--line);font-size:13px;color:#40585c;font-weight:700}
+    .timeline{position:relative;margin-top:10px}
+    .step{display:grid;grid-template-columns:42px 1fr;gap:12px;position:relative;padding-bottom:18px}
+    .step:not(:last-child):before{content:"";position:absolute;left:20px;top:38px;bottom:-2px;width:2px;background:#d8e8e6}
+    .step-no{width:42px;height:42px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:900;z-index:1}
+    .step-content{background:#fbfdfd;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+    .step-content b{display:block;margin-bottom:4px}
+    ul{padding-left:20px;margin:10px 0}
+    li{margin:6px 0}
+    .script{background:#111b1d;color:#eaf7f6;padding:18px;border-radius:14px;font-family:"PingFang SC","Microsoft YaHei",sans-serif;white-space:pre-wrap}
+    .kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+    .kpi{background:#f7fbfb;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+    .kpi strong{display:block;font-size:24px;color:#08766c}
+    .kpi span{font-size:12px;color:var(--muted)}
+    .footer{padding:28px 18px 54px;text-align:center;color:var(--muted);font-size:13px}
+    .footer b{color:#40585c}
+    .status-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .top-link{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border-radius:50%;border:0;background:#173a3d;color:white;display:none;place-items:center;cursor:pointer;box-shadow:var(--shadow)}
+    .top-link.show{display:grid}
+    .hide-print{}
+    @media(max-width:980px){
+      .hero-inner{grid-template-columns:1fr}.page{grid-template-columns:1fr}.toc{position:relative;top:auto;max-height:none}.grid-3{grid-template-columns:1fr 1fr}.kpi-strip{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .topbar-inner{align-items:flex-start}.brand span{display:block;font-size:13px;line-height:1.3}.hero-inner{padding-top:40px}.grid-2,.grid-3{grid-template-columns:1fr}.section-card{padding:20px}.hero h1{font-size:34px}.toolbar{gap:6px}.lang-btn,.util-btn{padding:7px 9px;font-size:13px}.kpi-strip{grid-template-columns:1fr 1fr}.section-head{display:block}.title-wrap{margin-bottom:8px}
+    }
+    @media print{
+      .topbar,.toc,.hero-actions,.top-link,.hide-print{display:none!important}.page{display:block;max-width:none;padding:0}.hero{background:#fff;border:0}.hero-inner{display:block;padding:15px 0}.hero-card{box-shadow:none}.section-card{box-shadow:none;break-inside:avoid}.footer{padding:10px 0}.section-card,.hero-card{border-color:#bbb}
+    }
+  
+    /* ===== v2 visual polish ===== */
+    :root{
+      --keeta:#ffd800;
+      --keeta-soft:#fff7bd;
+      --ink:#171717;
+      --ink-soft:#343434;
+      --surface:#ffffff;
+      --surface-2:#fbfcfc;
+    }
+    body{
+      background:
+        radial-gradient(circle at 8% 0%, rgba(255,216,0,.13), transparent 24rem),
+        radial-gradient(circle at 94% 12%, rgba(9,168,154,.08), transparent 26rem),
+        var(--bg);
+    }
+    .topbar{
+      border-bottom:1px solid rgba(24,35,38,.08);
+      box-shadow:0 6px 22px rgba(23,23,23,.04);
+    }
+    .brand-mark,.hero-logo{border-color:rgba(23,23,23,.08)}
+    .brand-mark{border-radius:13px}
+    .lang-btn,.util-btn{
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .lang-btn:hover,.util-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 7px 18px rgba(23,23,23,.08);
+    }
+    .lang-btn.active{
+      background:var(--keeta);
+      border-color:var(--keeta);
+      color:#111;
+      box-shadow:0 5px 14px rgba(255,216,0,.28);
+    }
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(255,216,0,.45), transparent 20rem),
+        linear-gradient(135deg,#fffdf0 0%,#f6fffd 54%,#ffffff 100%);
+    }
+    .hero:before,.hero:after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      pointer-events:none;
+      filter:blur(.2px);
+    }
+    .hero:before{
+      width:360px;height:360px;right:-120px;top:-160px;
+      background:rgba(255,216,0,.15);
+    }
+    .hero:after{
+      width:220px;height:220px;left:-100px;bottom:-130px;
+      background:rgba(9,168,154,.08);
+    }
+    .hero-inner{position:relative;z-index:1}
+    .eyebrow{
+      color:#303030;
+      border-color:rgba(23,23,23,.08);
+      background:rgba(255,255,255,.82);
+      box-shadow:0 5px 16px rgba(23,23,23,.04);
+    }
+    .hero h1{
+      color:var(--ink);
+      max-width:820px;
+    }
+    .primary{
+      background:var(--ink);
+      color:#fff;
+      box-shadow:0 10px 22px rgba(23,23,23,.16);
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .primary:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(23,23,23,.2)}
+    .secondary{
+      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+    }
+    .secondary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(23,23,23,.08);border-color:#cfd8d8}
+    .hero-card{
+      border-color:rgba(23,23,23,.07);
+      box-shadow:0 22px 55px rgba(23,23,23,.10);
+      transform:translateZ(0);
+    }
+    .metric{
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      background:linear-gradient(180deg,#fff,#fbfdfd);
+    }
+    .metric:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(23,23,23,.07);border-color:#cbdcda}
+    .metric b{color:#222}
+    .toc{
+      border-color:rgba(23,23,23,.07);
+      box-shadow:0 12px 32px rgba(23,23,23,.05);
+    }
+    .toc a{
+      position:relative;
+      transition:all .18s ease;
+      border-left:3px solid transparent;
+    }
+    .toc a:hover{background:#fff9d8;color:#1d1d1d;border-left-color:var(--keeta)}
+    .toc a.active{
+      background:#fff6b4;
+      color:#151515;
+      font-weight:800;
+      border-left-color:#151515;
+    }
+    .section-card{
+      border-color:rgba(23,23,23,.07);
+      box-shadow:0 12px 30px rgba(23,23,23,.045);
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+      overflow:hidden;
+    }
+    .section-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 42px rgba(23,23,23,.075);
+      border-color:rgba(23,23,23,.11);
+    }
+    .section-index{
+      background:var(--keeta);
+      color:#111;
+      box-shadow:0 5px 14px rgba(255,216,0,.25);
+    }
+    .feature{
+      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+      background:linear-gradient(180deg,#fff,#fdfefe);
+    }
+    .feature:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(23,23,23,.055);
+      border-color:#cfdddd;
+    }
+    .quote{
+      border-left-color:#171717;
+      background:linear-gradient(90deg,#fff7bd,#f4fbf9);
+      color:#252525;
+    }
+    .note{
+      background:#fffaf0;
+      border-color:#f3d58c;
+    }
+    .step-no{
+      background:#171717;
+      box-shadow:0 5px 14px rgba(23,23,23,.14);
+    }
+    .step:not(:last-child):before{background:linear-gradient(#17171722,#09a89a33)}
+    .step-content{transition:transform .2s ease,box-shadow .2s ease}
+    .step-content:hover{transform:translateX(3px);box-shadow:0 8px 18px rgba(23,23,23,.045)}
+    .money{color:#067d72}
+    table{box-shadow:0 6px 18px rgba(23,23,23,.025)}
+    tbody tr{transition:background .15s ease}
+    tbody tr:hover{background:#fffdf1}
+    .script{
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 12px 28px rgba(23,23,23,.10);
+    }
+    .kpi{transition:transform .2s ease,box-shadow .2s ease}
+    .kpi:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(23,23,23,.05)}
+    .kpi strong{color:#171717}
+    .progress-bar{
+      position:fixed;top:0;left:0;height:3px;width:0;
+      background:linear-gradient(90deg,#171717,var(--keeta));
+      z-index:100;transition:width .08s linear;
+    }
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .52s ease,transform .52s ease;
+    }
+    .reveal.visible{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><div class="brand-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAF6WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDYgNzkuMTY0NzUzLCAyMDIxLzAyLzE1LTExOjUyOjEzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjUtMDEtMDZUMTc6MzQ6MzIrMDg6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDI1LTAxLTA2VDE3OjM1OjU5KzA4OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDI1LTAxLTA2VDE3OjM1OjU5KzA4OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjI3NzM3ZmQwLWEyMzktNGU3My1hOTViLTBiYjU3MjI0OTFmYiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDplZTYyZjc0My04Y2IxLTRiNzEtYmE0NC02MjU2YzRkZGIxNGEiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDplZTYyZjc0My04Y2IxLTRiNzEtYmE0NC02MjU2YzRkZGIxNGEiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmVlNjJmNzQzLThjYjEtNGI3MS1iYTQ0LTYyNTZjNGRkYjE0YSIgc3RFdnQ6d2hlbj0iMjAyNS0wMS0wNlQxNzozNDozMiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKE1hY2ludG9zaCkiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjI3NzM3ZmQwLWEyMzktNGU3My1hOTViLTBiYjU3MjI0OTFmYiIgc3RFdnQ6d2hlbj0iMjAyNS0wMS0wNlQxNzozNTo1OSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Lnqj7AAAIbVJREFUeJztnXd4FVXzxz83N4QkQAIJhEASCNKbNAUFBQUEESsiKBakCL6ioNheERUB9RUVEQS7IKiIBURpgsoPUESagIoFJRB6CYFACqTs7485m93c7N6E3E1A3O/z3Gf3np1Tdnf2nDkzc+Z4tGR2AFFALi5cFB9eINWjJaOd6Za4+OciCDh6phvh4h+LY0FnugUu/tlwGchFQHAZyEVAcBnIRUBwGchFQHAZyEVAcBnIRUBwGchFQHAZyEVAcBnIRUBwGchFQHAZyEVAcBnIRUBwGchFQHAZ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" alt="Keeta logo"></div><span id="brandName">Keeta Power Bank · 兼职 BD 培训手册</span></div>
+      <div class="toolbar">
+        <button class="lang-btn active" data-lang="zh-CN">简体</button>
+        <button class="lang-btn" data-lang="zh-HK">繁體</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="util-btn hide-print" id="fullscreenBtn">⛶ <span id="fullscreenText">全屏</span></button>
+        <button class="util-btn hide-print" id="printBtn">🖨 <span id="printText">打印</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div id="app"></div>
+  <button class="top-link" id="topBtn" aria-label="Back to top">↑</button>
+
+  <script>
+  const LOGO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAF6WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDYgNzkuMTY0NzUzLCAyMDIxLzAyLzE1LTExOjUyOjEzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjUtMDEtMDZUMTc6MzQ6MzIrMDg6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDI1LTAxLTA2VDE3OjM1OjU5KzA4OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDI1LTAxLTA2VDE3OjM1OjU5KzA4OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjI3NzM3ZmQwLWEyMzktNGU3My1hOTViLTBiYjU3MjI0OTFmYiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDplZTYyZjc0My04Y2IxLTRiNzEtYmE0NC02MjU2YzRkZGIxNGEiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDplZTYyZjc0My04Y2IxLTRiNzEtYmE0NC02MjU2YzRkZGIxNGEiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmVlNjJmNzQzLThjYjEtNGI3MS1iYTQ0LTYyNTZjNGRkYjE0YSIgc3RFdnQ6d2hlbj0iMjAyNS0wMS0wNlQxNzozNDozMiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKE1hY2ludG9zaCkiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjI3NzM3ZmQwLWEyMzktNGU3My1hOTViLTBiYjU3MjI0OTFmYiIgc3RFdnQ6d2hlbj0iMjAyNS0wMS0wNlQxNzozNTo1OSswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Lnqj7AAAIbVJREFUeJztnXd4FVXzxz83N4QkQAIJhEASCNKbNAUFBQUEESsiKBakCL6ioNheERUB9RUVEQS7IKiIBURpgsoPUESagIoFJRB6CYFACqTs7485m93c7N6E3E1A3O/z3Gf3np1Tdnf2nDkzc+Z4tGR2AFFALi5cFB9eINWjJaOd6Za4+OciCDh6phvh4h+LY0FnugUu/tlwGchFQHAZyEVAcBnIRUBwGchFQHAZyEVAcBnIRUBwGchFQHAZyEVAcBnIRUBwGchFQHAZyEVAcBnIRUBwGchFQHAZ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";
+  const DATA = {
+    "zh-CN": {
+      meta:{brand:"Keeta Power Bank · 兼职 BD 培训手册",fullscreen:"全屏",print:"打印",eyebrow:"",title:"Keeta（美团香港）充电宝兼职 BD 培训手册",subtitle:"介绍项目模式、商户价值、佣金规则、门店筛选、私海机制、审核签约、安装结算与实战话术。",start:"开始讲解",overview:"项目总览",toc:"讲解目录",statusNow:"",statusPlan:"",statusRule:"",footer:"由萌生有限公司提供"},
+      heroMetrics:[["HK$600","油尖旺 · 自装带支架最高佣金"],["HK$400","非油尖旺 · 自装带支架最高佣金"],["30%","商户标准租借流水分成口径"],["10–15 秒","签约前场地审核视频"]],
+      sections:[
+        {id:"overview",title:"项目是什么？",lead:"Keeta 充电宝是 Keeta / 美团香港生态下的共享充电宝业务。兼职 BD 的核心不是“卖机器”，而是把合适商户与设备落地连接起来。",body:`<div class="quote">找合适商户 → 找到有决策权的人 → 讲清商户价值 → 审核 → 签约 → 安装 → 成功装机后获得佣金。</div>
+          <div class="grid grid-2"><div class="feature"><b>重点铺设场景</b><div class="small">餐厅、酒吧、咖啡店、网吧、KTV、按摩店、娱乐休闲场所、旅游区商户，以及其他“人流高 / 停留久 / 有充电需求”的场景。</div></div><div class="feature"><b>商户需要做什么？</b><div class="small">提供摆放位置和电源即可。设备、维护、补充、故障监控等由平台负责。</div></div></div>`},
+        {id:"role",title:"兼职 BD 要做什么？适合谁？",body:`<div class="grid grid-2"><div class="feature"><b>你的工作内容</b><ul><li>筛选合适门店</li><li>找到老板 / 店长 / 决策人</li><li>介绍 Keeta 商户合作方案</li><li>查后台门店资源与私海</li><li>拍摄场地审核视频</li><li>审核通过后签约</li><li>创建门店、录入资料</li><li>自行安装或交由公司安装</li></ul></div><div class="feature"><b>更适合这些人</b><ul><li>有销售、地推、保险、证券、信用卡、地产、活动推广经验</li><li>熟悉香港商圈</li><li>手上有餐饮、娱乐、商户资源</li><li>愿意主动与陌生商户沟通</li><li>希望用碎片时间增加兼职收入</li></ul></div></div>
+          <div class="note"><b>新人建议：</b>先从认识的老板、朋友开的店、自己经常去的店开始，把完整流程跑通 1 单，再做陌生拜访。</div>`},
+        {id:"merchant-value",title:"为什么商户愿意装？五大核心优势",body:`<div class="grid grid-2">
+          <div class="feature"><b>1. 绑定 Keeta 外卖，增加店铺曝光</b><div class="small">安装 Keeta 充电宝后，可与 Keeta 外卖生态形成联动。除充电宝分润外，还可以增加商户在 Keeta 生态内的曝光机会。对于餐厅、饮品、酒吧等兼做外卖的店铺尤其有利。</div></div>
+          <div class="feature"><b>2. 商户专属免费借用权益</b><div class="small">商户专属免费借用权益可提升店内人员使用体验，例如店铺账号每日可享约 3 小时免费借用。</div></div>
+          <div class="feature"><b>3. 三次店铺广告曝光</b><div class="small">店铺广告曝光功能可在用户借机、使用中、归还时形成多次展示，帮助商户持续提升品牌曝光。</div></div>
+          <div class="feature"><b>4. 内地游客免 198 港币押金</b><div class="small">符合条件的内地用户可免押借用，降低 198 港币押金门槛，对旅游区、跨境客流区域尤其有价值。</div></div>
+          <div class="feature"><b>5. 中港跨境互通借还</b><div class="small">香港借、大陆还；大陆借、香港还。对跨境旅客更方便，也降低“怕找不到归还点”的顾虑。</div></div>
+          <div class="feature"><b>额外引流逻辑</b><div class="small">用户会主动搜索附近充电宝点位，合适位置可为门店带来额外到店流量。因此和老板沟通时，不要只讲“设备”，要讲“流量 + 服务 + 分成”。</div></div>
+          </div>
+          `},
+        {id:"merchant-money",title:"商户收益与成本",body:`<div class="grid grid-2"><div class="feature"><b>商户收益</b><p>租借流水约 <span class="money">30%-35%</span> 分成。</p><p class="small">具体占比需要根据摆放点位，附近人流量等多个因素综合考虑，与公司进行协商确认。</p></div><div class="feature"><b>商户成本</b><p>只需要提供：<b>摆放位置 + 电源。</b></p><p class="small">设备维护、故障、补宝、后台监控等由平台负责。设备月耗电约 2 度左右，通常只产生很低的电费。</p></div></div>
+          <div class="quote">商户角度：我提供一个位置和一个插座，就能多一个便民服务，同时拿租借流水分成。</div>`},
+        {id:"user-pricing",title:"用户怎么收费？怎么借？",body:`<table><thead><tr><th>项目</th><th>收费与借用说明</th></tr></thead><tbody><tr><td>租借价格</td><td><b>HK$8 / 小时</b></td></tr><tr><td>不足 1 小时</td><td>按 1 小时计算</td></tr><tr><td>每日封顶</td><td><b>HK$30</b></td></tr><tr><td>内地用户</td><td>符合条件可信用免押；逾期不还会影响信用 / 按平台规则处理</td></tr><tr><td>香港 / 国际用户</td><td>按平台实际押金及支付规则执行</td></tr><tr><td>支付方式</td><td>支持支付宝（内地 / 香港版）、微信相关支付方式及八达通等</td></tr></tbody></table>
+          `},
+        {id:"commission",title:"兼职 BD 佣金：一单怎么赚钱？",body:`<h3>油尖旺地区</h3><table><thead><tr><th>安装方式</th><th>BD 收益</th></tr></thead><tbody><tr><td>自己安装 + 带支架</td><td class="money">HK$600 / 部</td></tr><tr><td>自己安装 + 不带支架</td><td class="money">HK$550 / 部</td></tr><tr><td>公司负责安装（不论有无支架）</td><td class="money">HK$400 / 部</td></tr></tbody></table>
+          <h3>非油尖旺地区</h3><table><thead><tr><th>安装方式</th><th>BD 收益</th></tr></thead><tbody><tr><td>自己安装 + 带支架</td><td class="money">HK$400 / 部</td></tr><tr><td>自己安装 + 不带支架</td><td class="money">HK$350 / 部</td></tr><tr><td>公司负责安装（不论有无支架）</td><td class="money">HK$200 / 部</td></tr></tbody></table>
+          <div class="quote">自己安装，佣金更高；公司代安装，佣金会扣除相应安装成本。</div>`},
+        {id:"settlement",title:"结算、长期收益与装机后的收入逻辑",body:`<div class="grid grid-2"><div class="feature"><b>佣金结算节奏</b><div class="small">设备通电后约 48 小时内结算第一笔款项（约 50%），持续通电约 10 天后结算剩余款项，用于防止虚假装机。</div></div><div class="feature"><b>10 台以上长期收益</b><div class="small">累计推广达到 10 台以上，除单次装机佣金外，按照考核要求可进入额外长期利润分成机制，具体比例与资格以协商为准。</div></div></div>
+          `},
+        {id:"flexible",title:"工作有没有固定时间？",body:`<p class="lead">没有固定坐班时间，也没有每天必须工作的小时数。可以按照自己的时间安排。</p><div class="pill-row"><span class="pill">放学后</span><span class="pill">下班后</span><span class="pill">周末集中跑店</span><span class="pill">逛街 / 吃饭顺路拓店</span><span class="pill">利用自己商户资源</span></div><div class="quote">有时间就做；没有时间可以暂时不做。真正决定收入的是成功装机数量。</div><div class="note">但一旦商户已经签约，建议当天或 1–2 天内完成安装。拖太久，老板可能反悔，前面的沟通会白做。</div>`},
+        {id:"target",title:"优先做什么店？",body:`<p>筛店的核心不是“看起来像不像商户”，而是判断：<b>人流量、停留时间、手机充电需求、是否容易找到决策人。</b></p><table><thead><tr><th>类型</th><th>为什么优先</th></tr></thead><tbody><tr><td>餐厅</td><td>用餐停留时间较长</td></tr><tr><td>酒吧</td><td>停留久，手机使用频率高</td></tr><tr><td>咖啡店</td><td>顾客经常用手机 / 办公</td></tr><tr><td>KTV</td><td>通常停留 2–3 小时以上</td></tr><tr><td>网吧 / 电竞场所</td><td>长时间停留且持续用手机</td></tr><tr><td>按摩 / SPA</td><td>停留时间较长</td></tr><tr><td>Party Room / 聚会场地</td><td>多人、停留时间长</td></tr><tr><td>旅游区商户</td><td>游客即时充电需求强</td></tr><tr><td>酒店周边商户</td><td>游客集中</td></tr><tr><td>旺区商铺 / 夜生活区域</td><td>人流大、借用概率高</td></tr></tbody></table>`},
+        {id:"avoid",title:"哪些店铺原则上不要做？",body:`<div class="grid grid-2"><div class="feature"><b>商品零售类</b><ul><li>普通社区水果店（大型连锁带休息区除外）</li><li>五金店</li><li>建材店 / 建材市场门店</li><li>灯饰店</li><li>家具 / 全屋定制门店</li><li>卫浴 / 门窗门店</li><li>社区小型生鲜超市（大型连锁除外）</li><li>文具店</li><li>渔具店</li><li>花店</li></ul></div><div class="feature"><b>汽车维修汽配类</b><ul><li>汽配店</li><li>汽车维修门店</li><li>修车行</li><li>轮胎店</li></ul><b>生活服务类</b><ul><li>社区小型美甲美容店（大型会所 / 长时间停留场景除外）</li><li>干洗店</li></ul></div><div class="feature"><b>批发市场档口</b><ul><li>服装批发市场档口</li><li>小商品批发市场档口</li></ul></div><div class="feature"><b>工地周边</b><ul><li>工地门口小卖部</li></ul><p class="small">核心原因通常是停留短、客流属性不匹配、借用概率低。</p></div></div><div class="danger-note"><b>判断逻辑：</b>这地方有没有真实顾客？会不会停留？有没有充电需求？不要仅因为“有人经过”就认为适合铺设。</div>`},
+        {id:"workflow",title:"完整工作流程：从找店到拿佣金",body:`<div class="timeline">
+  <div class="step"><div class="step-no">1</div><div class="step-content"><b>找店</b>先判断人流、停留时间、商业价值和充电需求。</div></div>
+  <div class="step"><div class="step-no">2</div><div class="step-content"><b>查后台门店资源 / 私海</b>确认是否已被其他 BD 锁定；可以加入私海保护自己的跟进权。</div></div>
+  <div class="step"><div class="step-no">3</div><div class="step-content"><b>找到老板 / 决策人</b>不要长期和服务员消耗时间。</div></div>
+  <div class="step"><div class="step-no">4</div><div class="step-content"><b>讲价值</b>围绕广告曝光、Keeta 流量、游客便利、商户分成、零设备成本切入。</div></div>
+  <div class="step"><div class="step-no">5</div><div class="step-content"><b>拍 10–15 秒 360° 场地视频</b>门头、左右环境、店内、拟放位置全部拍到，发到沟通小群审核。</div></div>
+  <div class="step"><div class="step-no">6</div><div class="step-content"><b>等待审核</b>一般约 5–10 分钟；有需要可以直接在群里 @ 负责人跟进。审核通过后才进入合同流程。</div></div>
+  <div class="step"><div class="step-no">7</div><div class="step-content"><b>填写第一份合同并收齐商户资料</b>第一份不带我司印章；商户资料和签署完成后，把合同带回公司。</div></div>
+  <div class="step"><div class="step-no">8</div><div class="step-content"><b>领取第二份盖章合同 + 设备</b>公司准备好我司信息及印章，BD 领取第二份正式合同和充电宝。</div></div>
+  <div class="step"><div class="step-no">9</div><div class="step-content"><b>再次到店签署 + 安装</b>商户补充 / 核对第二份合同中的乙方信息并签署，随后扫码绑定、接电、确认设备在线。</div></div>
+  <div class="step"><div class="step-no">10</div><div class="step-content"><b>双方各留一份合同，完成装机</b>我们留一份，商户留一份；装机完成后按标准佣金规则结算。</div></div>
+</div>`},
+        {id:"private-pool",title:"什么是“私海”？为什么一定要先查？",body:`<p>为了避免多个 BD 同时跟进同一家门店，后台会有门店保护机制。</p><div class="grid grid-2"><div class="feature"><b>你先加入私海</b><div class="small">系统会给这家门店一定保护期。保护期通常约 10–40 天。保护期内原则上只有你可以签。</div></div><div class="feature"><b>别人已经占了私海</b><div class="small">说明这家店已经有人跟进，你不能直接抢单。和所有人执行同一规则。</div></div></div><div class="quote">准备认真谈店前，先查后台。确认可跟进后，再投入时间。</div>`},
+        {id:"decision-maker",title:"为什么一定要找到老板？",body:`<p class="lead">这个业务最大的难点，通常不是产品本身，而是能不能找到真正有权决定的人。</p><div class="grid grid-2"><div class="feature"><b>低效率做法</b><div class="small">和服务员、收银员讲很久，但对方没有签约权限，也没有动力替你转达。</div></div><div class="feature"><b>高效率做法</b><div class="small">尽快确认老板、店长或真正的负责人是谁。需要时出示名片、宣传单，并留下 WhatsApp / 微信方便后续跟进。</div></div></div>`},
+        {id:"script",title:"推荐开场话术：不要一上来“卖充电宝”",body:`<p>更有效的切入方式是：<b>免费曝光 + Keeta 流量 + 商户分成 + 便民服务</b>。</p><div class="script">「你好，我哋係做 Keeta 商戶合作嘅，而家有個計劃可以免費幫店舖增加曝光，同時店舖仲可以有充電寶流水分成。我想搵一下老闆或者負責人，簡單講兩分鐘個合作方案。」
+
+找到老板后可继续：
+「我哋設備係免費擺放，維修同管理全部平台負責。店舖只需要提供一個位置同插座，之後充電寶產生租借流水，店舖可以有分成。另外 Keeta 本身亦有外賣同旅客流量，可以增加店舖曝光。」</div>`},
+        {id:"review",title:"签约前必须做场地视频审核",body:`<p>老板有合作意向后，先做场地审核，再进入合同填写流程。</p>
+<div class="grid grid-3">
+  <div class="feature"><b>视频时长</b><div class="small">约 10–15 秒，建议连续拍摄，清晰、稳定。</div></div>
+  <div class="feature"><b>审核速度</b><div class="small">一般约 <b>5–10 分钟</b>。会拉一个小群方便沟通，审核期间可直接 @ 负责人跟进。</div></div>
+  <div class="feature"><b>必须拍到</b><ul><li>店铺门头</li><li>左侧环境</li><li>右侧环境</li><li>店内整体情况</li><li>准备放设备的位置</li></ul></div>
+</div>
+<div class="danger-note"><b>不是每家店都会通过。</b>必须先审核合格，再填写并推进合同。</div>`},
+        {id:"contract",title:"合同怎么签？两份合同完整流程",body:`<p class="lead">合同是兼职 BD 落地商户的关键步骤。现场不要急着把合同直接留给商户，按下面的两份合同流程执行。</p>
+<div class="quote">审核通过 → 填第一份合同 → 带回公司 → 领取已填写公司信息并盖章的第二份合同 + 设备 → 再到店完成商户签署并安装。</div>
+<h3>先确认审核通过</h3>
+<div class="grid grid-2">
+  <div class="feature"><b>审核时间</b><div class="small">场地视频提交后，一般约 <b>5–10 分钟内</b>可以完成审核。会建立一个小群方便沟通，有需要可以直接在群里 @ 负责人跟进。</div></div>
+  <div class="feature"><b>审核通过后再填合同</b><div class="small">第一份合同先给 BD 使用，<b>不带公司印章</b>。确认门店审核通过后，再收集商户完整资料并填写。</div></div>
+</div>
+<h3>第一份合同：收集商户完整信息</h3>
+<table><thead><tr><th>需要填写 / 收集</th><th>合同中的用途</th></tr></thead><tbody>
+<tr><td><b>商户 / 公司法定名称</b></td><td>填写乙方名称。</td></tr>
+<tr><td><b>商业登记证号码</b></td><td>填写乙方商业登记资料；商户需要提供合法有效的企业资质或其他资格证明。</td></tr>
+<tr><td><b>注册地址</b></td><td>填写乙方注册地点 / 注册地址。</td></tr>
+<tr><td><b>Email</b></td><td>填写乙方邮箱地址，用于联系及系统相关信息。</td></tr>
+<tr><td><b>联系电话</b></td><td>填写乙方联系电话。</td></tr>
+<tr><td><b>商户实际摆放地址</b></td><td>填写设备实际铺设的门店地址。</td></tr>
+<tr><td><b>店铺类型</b></td><td>合同可选择餐厅、酒吧、酒楼、酒店、娱乐场所或其他类型。</td></tr>
+<tr><td><b>设备信息</b></td><td>包括 Keeta 设备型号 / 尺寸、数量等铺设信息。</td></tr>
+<tr><td><b>分成比例</b></td><td>填写双方最终确认的合作分成比例。</td></tr>
+<tr><td><b>收款银行账户</b></td><td>账户名称、银行账号、银行名称，用于后续分成付款。</td></tr>
+<tr><td><b>授权代表信息</b></td><td>授权代表姓名、职务及签字。</td></tr>
+</tbody></table>
+<div class="note"><b>注意：</b>商户应确认自己对设备摆放场所具备控制权或合法授权；如公司要求，也需要配合提供相关证明资料。</div>
+<h3>两份合同怎么走？</h3>
+<div class="timeline">
+  <div class="step"><div class="step-no">1</div><div class="step-content"><b>先拿第一份合同去谈店</b>第一份合同不带我司印章。门店有意向后先拍场地视频，确认审核通过。</div></div>
+  <div class="step"><div class="step-no">2</div><div class="step-content"><b>把商户信息填写完整</b>按照合同字段收齐商户名称、商业登记、地址、邮箱、电话、摆放地址、银行账户、授权代表等信息，并完成商户签署。</div></div>
+  <div class="step"><div class="step-no">3</div><div class="step-content"><b>把第一份合同带回公司</b>公司根据已确认的信息准备正式合同，并完成公司信息及印章部分。</div></div>
+  <div class="step"><div class="step-no">4</div><div class="step-content"><b>领取第二份正式合同 + 充电宝设备</b>第二份合同已经写好我司信息并带有公司印章。BD 同时领取需要安装的设备。</div></div>
+  <div class="step"><div class="step-no">5</div><div class="step-content"><b>第二次到店：商户补充 / 核对自己的资料并签署</b>把第二份合同交给商户，商户补充或核对乙方信息并完成签署；随后现场完成设备安装。</div></div>
+  <div class="step"><div class="step-no">6</div><div class="step-content"><b>合同一式两份</b>最终我们留一份，商户留一份，双方各自保存。</div></div>
+</div>
+<p class="small">合同本身约定可签署一式多份，每份均可视为正本；实际培训与执行按“两份合同、双方各留一份”的流程操作。</p>`},
+        {id:"backend",title:"创建门店与后台绑定",body:`<div class="grid grid-2"><div class="feature"><b>BD 后台要做什么</b><ul><li>创建商户门店</li><li>录入商业登记证资料</li><li>填写联系人、电话、邮箱</li><li>填写收款账户信息</li><li>录入门店 / 设备摆放地址</li><li>录入设备数量及合作分成等信息</li><li>把实际设备扫码绑定到该门店</li></ul></div><div class="feature"><b>商户后台价值</b><div class="small">绑定完成后，商户可通过相应账号查看收益、门店设备情况及提现相关信息。合同也明确商家系统可用于确认门店名称、设备数量、合作分成等合作信息。</div></div></div>`},
+        {id:"install",title:"安装方式：自己装 or 公司装",body:`<div class="grid grid-2"><div class="feature"><b>方式 A：BD 自己安装</b><ul><li>领取 / 携带设备</li><li>到店摆放</li><li>接电</li><li>扫码绑定门店</li><li>确认设备上线</li></ul><p class="small">优势：单台佣金更高。</p></div><div class="feature"><b>方式 B：公司安排安装</b><p>如果 BD 不方便搬运、安装，或者点位较远，可以由公司安排安装。</p><p class="small">对应佣金按“公司安装”标准结算。</p></div></div><div class="note"><b>时效：</b>签约后最好当天或 1–2 天内装完。不是公司强制时间，而是商业上越快越不容易流失商户。</div>`},
+        {id:"aftercare",title:"装完以后还要负责维修吗？",body:`<p class="lead">不需要。兼职 BD 的主要责任是开发商户并完成落地。</p><div class="grid grid-3"><div class="feature"><b>设备故障</b><div class="small">由运营 / 维护团队处理。</div></div><div class="feature"><b>充电宝缺失 / 补充</b><div class="small">由后台监控和运营团队处理。</div></div><div class="feature"><b>断电 / 离线</b><div class="small">后台可监控异常并安排跟进。</div></div></div><div class="quote">对兼职 BD 来说，核心是“开发 + 签约 + 落地”，不是长期维修设备。</div>`},
+        {id:"newbie",title:"新人最有效的起步方式",body:`<div class="timeline"><div class="step"><div class="step-no">A</div><div class="step-content"><b>先做熟人资源</b>朋友开的店、家人认识的店、自己经常去的店，沟通成本最低。</div></div><div class="step"><div class="step-no">B</div><div class="step-content"><b>先成功做 1 家</b>不要第一天就想着一次谈十家。先把一单从头到尾跑通。</div></div><div class="step"><div class="step-no">C</div><div class="step-content"><b>复盘完整流程</b>找店、私海、老板、审核、签约、建店、安装、结算全部熟悉。</div></div><div class="step"><div class="step-no">D</div><div class="step-content"><b>再去做陌拜</b>逐步进入旺角、尖沙咀、油麻地、旅游区、餐饮集中区。</div></div></div>`},
+        {id:"skills",title:"兼职 BD 最重要的三个能力",body:`<div class="grid grid-3"><div class="feature"><b>1. 会筛选商户</b><div class="small">不是每家店都值得花时间。先判断位置和场景价值。</div></div><div class="feature"><b>2. 找得到老板</b><div class="small">找到决策人，成交率才会提高。</div></div><div class="feature"><b>3. 能讲清价值</b><div class="small">不要一直讲“充电宝很好”，而要讲“对老板有什么好处”。</div></div></div><h3>老板最关心的四个问题</h3><table><thead><tr><th>老板的问题</th><th>你的回答逻辑</th></tr></thead><tbody><tr><td>我要不要花钱？</td><td>不需要购买设备。</td></tr><tr><td>我要不要管理？</td><td>平台负责设备维护、补宝及后台监控。</td></tr><tr><td>我能不能赚钱？</td><td>有租借流水分成。</td></tr><tr><td>还有没有其他好处？</td><td>便利服务、游客友好、Keeta 生态曝光，以及店铺广告和商户专属福利等附加价值。</td></tr></tbody></table>`},
+        {id:"summary",title:"一句话理解整个项目",body:`<div class="quote">我们不是去“卖充电宝”，而是寻找合适的商户，免费帮助商户铺设 Keeta 充电宝，让商户获得租借分成和额外曝光；兼职 BD 则根据成功装机数量获得推广佣金。</div><div class="kpi-strip"><div class="kpi"><strong>找对店</strong><span>先筛选场景</span></div><div class="kpi"><strong>找老板</strong><span>找到决策人</span></div><div class="kpi"><strong>讲价值</strong><span>流量 + 分成 + 服务</span></div><div class="kpi"><strong>快落地</strong><span>审核后尽快签装</span></div></div><p style="text-align:center;font-weight:900;margin-top:16px">找对店 → 找老板 → 讲价值 → 查私海 → 拍视频 → 等审核 → 当场签 → 尽快装 → 拿佣金</p>`},
+        {id:"hr-copy",title:"HR 对外招聘时可以怎么介绍",body:`<div class="script">岗位：Keeta 美团香港充电宝兼职 BD / 商户拓展
+
+工作内容主要是在香港寻找适合铺设 Keeta 充电宝的商户，与老板沟通合作方案，完成场地审核、签约及设备安装。
+
+这是自由兼职，没有固定上下班时间，可以按照自己的时间安排。商户无需购买设备，平台负责设备维护，商户提供场地和电源即可获得租借流水分成，因此 BD 主要负责寻找合适商户并推进合作落地。
+
+成功装机后按设备结算佣金。目前油尖旺自装带支架最高 HK$600 / 部，其他地区自装带支架最高 HK$400 / 部；如由公司负责安装，则按对应代安装标准结算。
+
+比较适合熟悉香港商圈、愿意与商户沟通，或者本身拥有餐饮、娱乐、零售商户资源的人。没有相关经验也可以参加培训，建议新人先从自己认识的商户开始，熟悉完整流程后再进行陌生拓展。</div>`},
+        {id:"compliance",title:"讲解时必须统一的口径与注意事项",body:`<div class="grid grid-2"><div class="feature"><b>未来功能不要讲成已上线</b><ul><li>商户每日 3 小时免费权益：按“规划 / 预计”讲</li><li>三次店铺广告曝光：按“未来功能”讲</li></ul></div><div class="feature"><b>收入不要过度承诺</b><ul><li>单台佣金按最新标准讲</li><li>10 台以上长期分成按“满足条件 + 最新政策”讲</li><li>不要承诺固定月收入</li></ul></div><div class="feature"><b>商户分成不要越权</b><div class="small">标准口径 30% 左右。特殊比例、外摆激励等必须按公司授权。</div></div><div class="feature"><b>押金 / 支付 / 八达通要核对</b><div class="small">不同用户、设备、试点状态可能不同，现场以最新小程序、后台与设备能力为准。</div></div></div>`}
+      ]
+    },
+    "zh-HK": {
+      meta:{brand:"Keeta Power Bank · 兼職 BD 培訓手冊",fullscreen:"全屏",print:"列印",eyebrow:"Keeta Power Bank · 現場培訓講解頁",title:"Keeta（美團香港）充電寶兼職 BD 培訓手冊",subtitle:"面向兼職 BD 的現場培訓網頁，幫助快速掌握項目模式、商戶價值、佣金規則、門店篩選、私海機制、審核簽約、安裝結算與實戰話術。",start:"開始講解",overview:"項目總覽",toc:"講解目錄",statusNow:"",statusPlan:"",statusRule:"",footer:"本頁用於 Keeta Power Bank 兼職 BD 培訓與現場講解。"},
+      heroMetrics:[["HK$600","油尖旺 · 自裝連支架最高佣金"],["HK$400","非油尖旺 · 自裝連支架最高佣金"],["30%","商戶標準租借流水分成口徑"],["10–15 秒","簽約前場地審核影片"]],
+      sections:[
+        {id:"overview",title:"項目是做什麼？",lead:"Keeta 充電寶是 Keeta / 美團香港生態下的共享充電寶業務。兼職 BD 的核心不是「賣機器」，而是把合適商戶與設備落地連接起來。",body:`<div class="quote">找合適商戶 → 找到有決策權的人 → 講清商戶價值 → 審核 → 簽約 → 安裝 → 成功裝機後獲得佣金。</div><div class="grid grid-2"><div class="feature"><b>重點鋪設場景</b><div class="small">餐廳、酒吧、咖啡店、網吧、KTV、按摩店、娛樂休閒場所、旅遊區商戶，以及其他「人流高 / 停留久 / 有充電需求」的場景。</div></div><div class="feature"><b>商戶需要做什麼？</b><div class="small">提供擺放位置及電源即可。設備、維護、補充、故障監控等由平台負責。</div></div></div>`},
+        {id:"role",title:"兼職 BD 要做什麼？適合誰？",body:`<div class="grid grid-2"><div class="feature"><b>你的工作內容</b><ul><li>篩選合適門店</li><li>找到老闆 / 店長 / 決策人</li><li>介紹 Keeta 商戶合作方案</li><li>查後台門店資源與私海</li><li>拍攝場地審核影片</li><li>審核通過後簽約</li><li>建立門店、錄入資料</li><li>自行安裝或交由公司安裝</li></ul></div><div class="feature"><b>更適合這些人</b><ul><li>有銷售、地推、保險、證券、信用卡、地產、活動推廣經驗</li><li>熟悉香港商圈</li><li>手上有餐飲、娛樂、商戶資源</li><li>願意主動與陌生商戶溝通</li><li>希望用碎片時間增加兼職收入</li></ul></div></div><div class="note"><b>新人建議：</b>先由認識的老闆、朋友開的店、自己常去的店開始，把完整流程跑通 1 單，再做陌生拜訪。</div>`},
+        {id:"merchant-value",title:"為什麼商戶願意裝？五大核心優勢",body:`<div class="grid grid-2"><div class="feature"><b>1. 綁定 Keeta 外賣，增加店舖曝光</b><div class="small">安裝 Keeta 充電寶後，可與 Keeta 外賣生態形成聯動。除充電寶分潤外，亦可增加商戶在 Keeta 生態內的曝光機會。對餐廳、飲品店、酒吧等兼做外賣的店舖尤其容易理解。</div></div><div class="feature"><b>2. 商戶專屬免費借用權益</b><div class="small">商戶專屬免費借用權益可提升店內人員使用體驗，例如店舖帳號每日可享約 3 小時免費借用。</div></div><div class="feature"><b>3. 三次店舖廣告曝光</b><div class="small">店舖廣告曝光功能可在用戶借機、使用中、歸還時形成多次展示，幫助商戶持續提升品牌曝光。</div></div><div class="feature"><b>4. 內地旅客免 198 港幣按金</b><div class="small">符合條件的內地用戶可透過信用體系免按借用，降低 198 港幣按金門檻，對旅遊區及跨境客流區域尤其有價值。</div></div><div class="feature"><b>5. 中港跨境互通借還</b><div class="small">香港借、大陸還；大陸借、香港還。對跨境旅客更方便，也降低「怕找不到歸還點」的顧慮。</div></div><div class="feature"><b>額外引流邏輯</b><div class="small">用戶會主動搜尋附近充電寶點位，合適位置可為門店帶來額外到店流量。因此與老闆溝通時，不只講設備，要講「流量 + 服務 + 分成」。</div></div></div>`},
+        {id:"merchant-money",title:"商戶收益與成本",body:`<div class="grid grid-2"><div class="feature"><b>商戶收益</b><p>租借流水約 <span class="money">30%–35%</span> 分成。</p><p class="small">具體比例需要根據擺放點位、附近人流量等多個因素綜合考慮，再與公司協商確認。</p></div><div class="feature"><b>商戶成本</b><p>只需要提供：<b>擺放位置 + 電源</b>。</p><p class="small">設備維護、故障、補寶、後台監控等由平台負責。設備每月耗電約 2 度左右，通常只產生很低電費。</p></div></div><div class="quote">商戶角度：我提供一個位置和一個插座，就能多一個便民服務，同時拿租借流水分成。</div>`},
+        {id:"user-pricing",title:"用戶怎樣收費？怎樣借？",body:`<table><thead><tr><th>項目</th><th>收費與借用說明</th></tr></thead><tbody><tr><td>租借價格</td><td><b>HK$8 / 小時</b></td></tr><tr><td>不足 1 小時</td><td>按 1 小時計</td></tr><tr><td>每日封頂</td><td><b>HK$30</b></td></tr><tr><td>內地用戶</td><td>符合條件可信用免按；逾期不還會影響信用 / 按平台規則處理</td></tr><tr><td>香港 / 國際用戶</td><td>按平台實際按金及支付規則執行</td></tr><tr><td>支付方式</td><td>支援支付寶（內地 / 香港版）、微信相關支付方式及八達通等</td></tr></tbody></table>`},
+        {id:"commission",title:"兼職 BD 佣金：一單怎樣賺？",body:`<h3>油尖旺地區</h3><table><thead><tr><th>安裝方式</th><th>BD 收益</th></tr></thead><tbody><tr><td>自己安裝 + 連支架</td><td class="money">HK$600 / 部</td></tr><tr><td>自己安裝 + 不連支架</td><td class="money">HK$550 / 部</td></tr><tr><td>公司負責安裝（不論有冇支架）</td><td class="money">HK$400 / 部</td></tr></tbody></table><h3>非油尖旺地區</h3><table><thead><tr><th>安裝方式</th><th>BD 收益</th></tr></thead><tbody><tr><td>自己安裝 + 連支架</td><td class="money">HK$400 / 部</td></tr><tr><td>自己安裝 + 不連支架</td><td class="money">HK$350 / 部</td></tr><tr><td>公司負責安裝（不論有冇支架）</td><td class="money">HK$200 / 部</td></tr></tbody></table><div class="quote">核心邏輯：自己安裝，佣金較高；公司代裝，佣金會扣除相應安裝成本。</div>`},
+        {id:"settlement",title:"結算、長期收益與裝機後收入邏輯",body:`<div class="grid grid-2"><div class="feature"><b>佣金結算節奏</b><div class="small">設備通電後約 48 小時內結算第一筆款項（約 50%），持續通電約 10 天後結算餘款，用於防止虛假裝機。</div></div><div class="feature"><b>10 台以上長期收益</b><div class="small">累計推廣達到 10 台以上，除單次裝機佣金外，按照考核要求可進入額外長期利潤分成機制，具體比例與資格以協商為準。</div></div></div>`},
+        {id:"flexible",title:"工作有固定時間嗎？",body:`<p class="lead">沒有固定坐班時間，也沒有每日最低工時。可以完全按自己時間安排。</p><div class="pill-row"><span class="pill">放學後</span><span class="pill">下班後</span><span class="pill">週末集中跑店</span><span class="pill">行街 / 食飯順路拓店</span><span class="pill">利用自己商戶資源</span></div><div class="quote">有時間就做，冇時間可以暫停。真正決定收入的是成功裝機數量。</div><div class="note">一旦商戶已簽約，建議當日或 1–2 日內完成安裝，減少反悔風險。</div>`},
+        {id:"target",title:"優先做什麼店？",body:`<p>篩店核心：<b>人流量、停留時間、手機充電需求、是否容易找到決策人。</b></p><table><thead><tr><th>類型</th><th>為什麼優先</th></tr></thead><tbody><tr><td>餐廳</td><td>用餐停留時間較長</td></tr><tr><td>酒吧</td><td>停留久，手機使用頻率高</td></tr><tr><td>咖啡店</td><td>顧客經常用手機 / 辦公</td></tr><tr><td>KTV</td><td>通常停留 2–3 小時以上</td></tr><tr><td>網吧 / 電競場所</td><td>長時間停留並持續用手機</td></tr><tr><td>按摩 / SPA</td><td>停留時間較長</td></tr><tr><td>Party Room</td><td>多人、停留時間長</td></tr><tr><td>旅遊區商戶</td><td>遊客即時充電需求強</td></tr><tr><td>酒店周邊商戶</td><td>旅客集中</td></tr><tr><td>旺區商舖 / 夜生活區</td><td>人流大、借用概率高</td></tr></tbody></table>`},
+        {id:"avoid",title:"哪些店舖原則上不要做？",body:`<div class="grid grid-2"><div class="feature"><b>商品零售類</b><ul><li>普通社區水果店（大型連鎖帶休息區除外）</li><li>五金店</li><li>建材店 / 建材市場門店</li><li>燈飾店</li><li>傢俬 / 全屋訂製門店</li><li>衛浴 / 門窗門店</li><li>社區小型生鮮超市（大型連鎖除外）</li><li>文具店</li><li>漁具店</li><li>花店</li></ul></div><div class="feature"><b>汽車維修汽配類</b><ul><li>汽配店</li><li>汽車維修門店</li><li>修車行</li><li>輪胎店</li></ul><b>生活服務類</b><ul><li>社區小型美甲美容店（大型會所 / 長時間停留場景除外）</li><li>乾洗店</li></ul></div><div class="feature"><b>批發市場檔口</b><ul><li>服裝批發市場檔口</li><li>小商品批發市場檔口</li></ul></div><div class="feature"><b>工地周邊</b><ul><li>工地門口小賣部</li></ul><p class="small">核心原因通常是停留短、客流屬性不匹配、借用概率低。</p></div></div><div class="danger-note"><b>判斷邏輯：</b>這地方有沒有真實顧客？會不會停留？有沒有充電需求？不要只因為「有人經過」就認為適合鋪設。</div>`},
+        {id:"workflow",title:"完整工作流程：由找店到收佣",body:`<div class="timeline">
+<div class="step"><div class="step-no">1</div><div class="step-content"><b>找店</b>先判斷人流、停留時間、商業價值及充電需求。</div></div>
+<div class="step"><div class="step-no">2</div><div class="step-content"><b>查後台門店資源 / 私海</b>確認是否已被其他 BD 鎖定；可以加入私海保護自己的跟進權。</div></div>
+<div class="step"><div class="step-no">3</div><div class="step-content"><b>找到老闆 / 決策人</b>不要長時間和服務員消耗時間。</div></div>
+<div class="step"><div class="step-no">4</div><div class="step-content"><b>講價值</b>圍繞廣告曝光、Keeta 流量、旅客便利、商戶分成、零設備成本切入。</div></div>
+<div class="step"><div class="step-no">5</div><div class="step-content"><b>拍 10–15 秒 360° 場地影片</b>門頭、左右環境、店內、擬放位置全部拍到，發到溝通小群審核。</div></div>
+<div class="step"><div class="step-no">6</div><div class="step-content"><b>等待審核</b>一般約 5–10 分鐘；有需要可以直接在群裡 @ 負責人跟進。審核通過後才進入合同流程。</div></div>
+<div class="step"><div class="step-no">7</div><div class="step-content"><b>填寫第一份合同並收齊商戶資料</b>第一份不帶我司印章；商戶資料和簽署完成後，把合同帶回公司。</div></div>
+<div class="step"><div class="step-no">8</div><div class="step-content"><b>領取第二份蓋章合同 + 設備</b>公司準備好我司資料及印章，BD 領取第二份正式合同和充電寶。</div></div>
+<div class="step"><div class="step-no">9</div><div class="step-content"><b>再次到店簽署 + 安裝</b>商戶補充 / 核對第二份合同中的乙方資料並簽署，隨後掃碼綁定、接電、確認設備在線。</div></div>
+<div class="step"><div class="step-no">10</div><div class="step-content"><b>雙方各留一份合同，完成裝機</b>我們留一份，商戶留一份；裝機完成後按標準佣金規則結算。</div></div>
+</div>`},
+        {id:"private-pool",title:"什麼是「私海」？為什麼一定要先查？",body:`<p>為避免多個 BD 同時跟進同一門店，後台有門店保護機制。</p><div class="grid grid-2"><div class="feature"><b>你先加入私海</b><div class="small">系統會給一定保護期，通常約 10–40 日。保護期內原則上只有你可以簽。</div></div><div class="feature"><b>別人已佔私海</b><div class="small">代表已有其他 BD 跟進，你不能直接搶單。</div></div></div><div class="quote">準備認真談店前，先查後台。</div>`},
+        {id:"decision-maker",title:"為什麼一定要找到老闆？",body:`<p class="lead">這個業務最大的難點，通常不是產品本身，而是能不能找到真正有權決定的人。</p><div class="grid grid-2"><div class="feature"><b>低效率做法</b><div class="small">和服務員、收銀員講很久，但對方沒有簽約權限，也沒有動力替你轉達。</div></div><div class="feature"><b>高效率做法</b><div class="small">盡快確認老闆、店長或真正的負責人是誰。需要時出示名片、宣傳單，並留下 WhatsApp / 微信方便後續跟進。</div></div></div>`},
+        {id:"script",title:"推薦開場話術：不要一上來只講充電寶",body:`<p>更有效的切入：<b>免費曝光 + Keeta 流量 + 商戶分成 + 便民服務</b>。</p><div class="script">「你好，我哋係做 Keeta 商戶合作嘅，而家有個計劃可以免費幫店舖增加曝光，同時店舖仲可以有充電寶流水分成。我想搵一下老闆或者負責人，簡單講兩分鐘個合作方案。」
+
+找到老闆後：
+「我哋設備係免費擺放，維修同管理全部平台負責。店舖只需要提供一個位置同插座，之後充電寶產生租借流水，店舖可以有分成。另外 Keeta 本身亦有外賣同旅客流量，可以增加店舖曝光。」</div>`},
+        {id:"review",title:"簽約前必須做場地影片審核",body:`<p>老闆有合作意向後，先做場地審核，再進入合同填寫流程。</p><div class="grid grid-3"><div class="feature"><b>影片時長</b><div class="small">約 10–15 秒，建議連續拍攝，清晰、穩定。</div></div><div class="feature"><b>審核速度</b><div class="small">一般約 <b>5–10 分鐘</b>。會拉一個小群方便溝通，審核期間可直接 @ 負責人跟進。</div></div><div class="feature"><b>必須拍到</b><ul><li>店舖門頭</li><li>左側環境</li><li>右側環境</li><li>店內整體情況</li><li>準備放設備的位置</li></ul></div></div><div class="danger-note"><b>不是每間店都會通過。</b>必須先審核合格，再填寫並推進合同。</div>`},
+        {id:"contract",title:"合同怎樣簽？兩份合同完整流程",body:`<p class="lead">合同是兼職 BD 落地商戶的關鍵步驟。現場不要急著把合同直接留給商戶，按下面的兩份合同流程執行。</p>
+<div class="quote">審核通過 → 填第一份合同 → 帶回公司 → 領取已填寫公司資料並蓋章的第二份合同 + 設備 → 再到店完成商戶簽署並安裝。</div>
+<h3>先確認審核通過</h3>
+<div class="grid grid-2"><div class="feature"><b>審核時間</b><div class="small">場地影片提交後，一般約 <b>5–10 分鐘內</b>可以完成審核。會建立一個小群方便溝通，有需要可以直接在群裡 @ 負責人跟進。</div></div><div class="feature"><b>審核通過後再填合同</b><div class="small">第一份合同先給 BD 使用，<b>不帶公司印章</b>。確認門店審核通過後，再收集商戶完整資料並填寫。</div></div></div>
+<h3>第一份合同：收集商戶完整資料</h3>
+<table><thead><tr><th>需要填寫 / 收集</th><th>合同中的用途</th></tr></thead><tbody>
+<tr><td><b>商戶 / 公司法定名稱</b></td><td>填寫乙方名稱。</td></tr>
+<tr><td><b>商業登記證號碼</b></td><td>填寫乙方商業登記資料；商戶需要提供合法有效的企業資質或其他資格證明。</td></tr>
+<tr><td><b>註冊地址</b></td><td>填寫乙方註冊地點 / 註冊地址。</td></tr>
+<tr><td><b>Email</b></td><td>填寫乙方郵箱地址，用於聯絡及系統相關資訊。</td></tr>
+<tr><td><b>聯絡電話</b></td><td>填寫乙方聯絡電話。</td></tr>
+<tr><td><b>商戶實際擺放地址</b></td><td>填寫設備實際鋪設的門店地址。</td></tr>
+<tr><td><b>店舖類型</b></td><td>合同可選擇餐廳、酒吧、酒樓、酒店、娛樂場所或其他類型。</td></tr>
+<tr><td><b>設備資料</b></td><td>包括 Keeta 設備型號 / 尺寸、數量等鋪設資訊。</td></tr>
+<tr><td><b>分成比例</b></td><td>填寫雙方最終確認的合作分成比例。</td></tr>
+<tr><td><b>收款銀行帳戶</b></td><td>帳戶名稱、銀行帳號、銀行名稱，用於後續分成付款。</td></tr>
+<tr><td><b>授權代表資料</b></td><td>授權代表姓名、職務及簽字。</td></tr>
+</tbody></table>
+<div class="note"><b>注意：</b>商戶應確認自己對設備擺放場所具備控制權或合法授權；如公司要求，也需要配合提供相關證明資料。</div>
+<h3>兩份合同怎樣走？</h3>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div class="step-content"><b>先拿第一份合同去談店</b>第一份合同不帶我司印章。門店有意向後先拍場地影片，確認審核通過。</div></div>
+<div class="step"><div class="step-no">2</div><div class="step-content"><b>把商戶資料填寫完整</b>按照合同欄位收齊商戶名稱、商業登記、地址、郵箱、電話、擺放地址、銀行帳戶、授權代表等資料，並完成商戶簽署。</div></div>
+<div class="step"><div class="step-no">3</div><div class="step-content"><b>把第一份合同帶回公司</b>公司根據已確認的資料準備正式合同，並完成公司資料及印章部分。</div></div>
+<div class="step"><div class="step-no">4</div><div class="step-content"><b>領取第二份正式合同 + 充電寶設備</b>第二份合同已經寫好我司資料並帶有公司印章。BD 同時領取需要安裝的設備。</div></div>
+<div class="step"><div class="step-no">5</div><div class="step-content"><b>第二次到店：商戶補充 / 核對自己的資料並簽署</b>把第二份合同交給商戶，商戶補充或核對乙方資料並完成簽署；隨後現場完成設備安裝。</div></div>
+<div class="step"><div class="step-no">6</div><div class="step-content"><b>合同一式兩份</b>最終我們留一份，商戶留一份，雙方各自保存。</div></div>
+</div>
+<p class="small">合同本身約定可簽署一式多份，每份均可視為正本；實際培訓與執行按「兩份合同、雙方各留一份」的流程操作。</p>`},
+        {id:"backend",title:"建立門店與後台綁定",body:`<div class="grid grid-2"><div class="feature"><b>BD 後台要做什麼</b><ul><li>建立商戶門店</li><li>錄入商業登記證資料</li><li>填寫聯絡人、電話、電郵</li><li>填寫收款帳戶資料</li><li>錄入門店 / 設備擺放地址</li><li>錄入設備數量及合作分成等資訊</li><li>把實際設備掃碼綁定到該門店</li></ul></div><div class="feature"><b>商戶後台價值</b><div class="small">綁定完成後，商戶可透過相應帳號查看收益、門店設備情況及提款相關資訊。合同亦明確商家系統可用於確認門店名稱、設備數量、合作分成等合作資訊。</div></div></div>`},
+        {id:"install",title:"安裝方式：自己裝 or 公司裝",body:`<div class="grid grid-2"><div class="feature"><b>方式 A：BD 自己安裝</b><ul><li>領取 / 攜帶設備</li><li>到店擺放</li><li>接電</li><li>掃碼綁定門店</li><li>確認設備上線</li></ul><p class="small">優勢：單台佣金較高。</p></div><div class="feature"><b>方式 B：公司安排安裝</b><p>如 BD 不方便搬運、安裝，或點位較遠，可由公司安排。</p><p class="small">佣金按「公司安裝」標準結算。</p></div></div>`},
+        {id:"aftercare",title:"裝完以後還要負責維修嗎？",body:`<p class="lead">不需要，兼職 BD 主要責任是開發商戶並完成落地。</p><div class="grid grid-3"><div class="feature"><b>設備故障</b><div class="small">由營運 / 維護團隊處理。</div></div><div class="feature"><b>充電寶缺失 / 補充</b><div class="small">由後台監控及營運處理。</div></div><div class="feature"><b>斷電 / 離線</b><div class="small">後台監控異常並安排跟進。</div></div></div>`},
+        {id:"newbie",title:"新人最有效的起步方式",body:`<div class="timeline"><div class="step"><div class="step-no">A</div><div class="step-content"><b>先做熟人資源</b>朋友開的店、家人認識的店、自己常去的店。</div></div><div class="step"><div class="step-no">B</div><div class="step-content"><b>先成功做 1 間</b>先跑通一單完整流程。</div></div><div class="step"><div class="step-no">C</div><div class="step-content"><b>完整復盤</b>私海、審核、簽約、建店、安裝、結算全部熟悉。</div></div><div class="step"><div class="step-no">D</div><div class="step-content"><b>再做陌生拜訪</b>逐步進入旺角、尖沙咀、油麻地、旅遊區、餐飲集中區。</div></div></div>`},
+        {id:"skills",title:"兼職 BD 最重要的三個能力",body:`<div class="grid grid-3"><div class="feature"><b>1. 會篩選商戶</b><div class="small">先判斷場景值不值得做。</div></div><div class="feature"><b>2. 找得到老闆</b><div class="small">找到決策人，成交率才會上升。</div></div><div class="feature"><b>3. 能講清價值</b><div class="small">要講對老闆有什麼好處。</div></div></div><h3>老闆最關心的四個問題</h3><table><tbody><tr><td>我要不要花錢？</td><td>不用購買設備。</td></tr><tr><td>我要不要管理？</td><td>平台負責維護及監控。</td></tr><tr><td>我能不能賺錢？</td><td>有租借流水分成。</td></tr><tr><td>還有什麼好處？</td><td>便民服務、旅客友好、Keeta 生態曝光，以及店舖廣告與商戶專屬福利等附加價值。</td></tr></tbody></table>`},
+        {id:"summary",title:"一句話理解整個項目",body:`<div class="quote">我們不是去「賣充電寶」，而是尋找合適商戶，免費幫商戶鋪設 Keeta 充電寶，讓商戶得到租借分成和額外曝光；兼職 BD 則按成功裝機數量取得推廣佣金。</div><div class="kpi-strip"><div class="kpi"><strong>找對店</strong><span>先篩選場景</span></div><div class="kpi"><strong>找老闆</strong><span>找到決策人</span></div><div class="kpi"><strong>講價值</strong><span>流量 + 分成 + 服務</span></div><div class="kpi"><strong>快落地</strong><span>審核後盡快簽裝</span></div></div>`},
+        {id:"hr-copy",title:"HR 對外招聘時可以怎樣介紹",body:`<div class="script">職位：Keeta 美團香港充電寶兼職 BD / 商戶拓展
+
+工作內容主要是在香港尋找適合鋪設 Keeta 充電寶的商戶，與老闆溝通合作方案，完成場地審核、簽約及設備安裝。
+
+這是自由兼職，沒有固定上下班時間，可以按自己時間安排。商戶不需要購買設備，平台負責設備維護，商戶提供場地及電源即可獲得租借流水分成，因此 BD 主要負責尋找合適商戶及推進合作落地。
+
+成功裝機後按設備結算佣金。目前油尖旺自裝連支架最高約 HK$600 / 部，其他地區自裝連支架最高約 HK$400 / 部；如由公司負責安裝，則按相應代裝標準結算。
+
+適合熟悉香港商圈、願意與商戶溝通，或本身擁有餐飲、娛樂、零售商戶資源的人。沒有相關經驗亦可參加培訓。</div>`},
+        {id:"compliance",title:"講解時必須統一的口徑與注意事項",body:`<div class="grid grid-2"><div class="feature"><b>未來功能不要講成已上線</b><ul><li>商戶每日 3 小時免費權益：按「規劃 / 預計」講</li><li>三次店舖廣告曝光：按「未來功能」講</li></ul></div><div class="feature"><b>收入不要過度承諾</b><ul><li>單台佣金按最新標準</li><li>10 台以上長期分成按「滿足條件 + 最新政策」</li><li>不要承諾固定月收入</li></ul></div><div class="feature"><b>商戶分成不要越權</b><div class="small">標準口徑約 30%。特殊比例、外擺激勵須按公司授權。</div></div><div class="feature"><b>按金 / 支付 / 八達通要核對</b><div class="small">不同用戶、設備、試點狀態可能不同，以最新小程序、後台及現場設備為準。</div></div></div>`}
+      ]
+    },
+    "en": {
+      meta:{brand:"Keeta Power Bank · Part-time BD Training Manual",fullscreen:"Fullscreen",print:"Print",eyebrow:"Keeta Power Bank · In-person training page",title:"Keeta (Meituan Hong Kong) Power Bank Part-time BD Training Manual",subtitle:"An in-person training page for part-time BD staff, designed to help them quickly understand the project model, merchant value, commission rules, store screening, private-pool workflow, review and contracting, installation, settlement and practical scripts.",start:"Start",overview:"Project overview",toc:"Guide sections",statusNow:"",statusPlan:"",statusRule:"",footer:"This page is used for Keeta Power Bank part-time BD training and in-person explanation."},
+      heroMetrics:[["HK$600","Yau Tsim Mong · self-install with stand (max current base commission)"],["HK$400","Outside Yau Tsim Mong · self-install with stand"],["30%","Standard merchant rental-revenue-share talking point"],["10–15 sec","Pre-contract venue review video"]],
+      sections:[
+        {id:"overview",title:"What is this project?",lead:"Keeta Power Bank is a shared power-bank business within the Keeta / Meituan Hong Kong ecosystem. A part-time BD is not simply “selling a machine”; the job is to connect suitable merchants with successful device deployment.",body:`<div class="quote">Find a suitable merchant → reach the decision maker → explain merchant value → review → contract → install → earn commission after successful deployment.</div><div class="grid grid-2"><div class="feature"><b>Priority venues</b><div class="small">Restaurants, bars, cafés, internet cafés, KTV, massage shops, leisure venues, tourist-area merchants and other places with high footfall, long dwell time or clear charging demand.</div></div><div class="feature"><b>What does the merchant provide?</b><div class="small">Only placement space and power. Equipment, maintenance, replenishment and fault monitoring are handled by the platform.</div></div></div>`},
+        {id:"role",title:"What does a part-time BD do, and who fits the role?",body:`<div class="grid grid-2"><div class="feature"><b>Core responsibilities</b><ul><li>Screen suitable stores</li><li>Reach the owner / manager / decision maker</li><li>Present the Keeta merchant partnership</li><li>Check store resources and private-lead status</li><li>Record venue review video</li><li>Sign after approval</li><li>Create the store and enter merchant data</li><li>Self-install or arrange company installation</li></ul></div><div class="feature"><b>Good fit</b><ul><li>Sales, field promotion, insurance, securities, credit-card, real-estate or event-promotion experience</li><li>Familiar with Hong Kong commercial areas</li><li>Existing F&B / entertainment / merchant network</li><li>Comfortable approaching unfamiliar businesses</li><li>Wants flexible, performance-based part-time income</li></ul></div></div><div class="note"><b>Beginner advice:</b> start with merchants you already know, complete one full deal, then move to cold outreach.</div>`},
+        {id:"merchant-value",title:"Why would a merchant install it? Five core advantages",body:`<div class="grid grid-2"><div class="feature"><b>1. Keeta food-delivery ecosystem exposure</b><div class="small">Installation can be positioned as part of the Keeta ecosystem. In addition to rental revenue share, merchants may benefit from additional visibility in the Keeta ecosystem, especially relevant for F&B merchants.</div></div><div class="feature"><b>2. Merchant free-use benefit</b><div class="small">Merchant free-use benefits can improve the in-store experience, such as around 3 free hours per day for the store account.</div></div><div class="feature"><b>3. Three merchant ad exposures</b><div class="small">Merchant ad exposure can appear when the customer borrows, during use and upon return, giving the store repeated brand exposure.</div></div><div class="feature"><b>4. Mainland visitor deposit waiver</b><div class="small">Eligible Mainland users may borrow under a credit-based deposit waiver, reducing the HK$198 deposit barrier. This is especially useful in tourist-heavy areas.</div></div><div class="feature"><b>5. Cross-border borrow and return</b><div class="small">Borrow in Hong Kong and return in Mainland China, or vice versa, making the service more convenient for cross-border travelers.</div></div><div class="feature"><b>Traffic-generation logic</b><div class="small">Users may search for nearby power-bank locations. A good point of presence can bring incremental store visits. Sell “traffic + convenience + revenue share,” not only a device.</div></div></div>`},
+        {id:"merchant-money",title:"Merchant revenue and cost",body:`<div class="grid grid-2"><div class="feature"><b>Merchant revenue</b><p>Approximately <span class="money">30%–35%</span> of eligible rental revenue.</p><p class="small">The exact share depends on factors such as placement, surrounding footfall and overall commercial value, and is confirmed with the company.</p></div><div class="feature"><b>Merchant cost</b><p>The merchant only provides <b>placement space + power</b>.</p><p class="small">Equipment maintenance, faults, battery replenishment and backend monitoring are handled by the platform. Monthly electricity use is low, at roughly 2 kWh.</p></div></div><div class="quote">From the merchant’s perspective: provide a small space and a power socket, add a customer convenience service, and receive a share of rental revenue.</div>`},
+        {id:"user-pricing",title:"How are users charged?",body:`<table><thead><tr><th>Item</th><th>Charging / borrowing details</th></tr></thead><tbody><tr><td>Rental price</td><td><b>HK$8 / hour</b></td></tr><tr><td>Less than 1 hour</td><td>Charged as 1 hour</td></tr><tr><td>Daily cap</td><td><b>HK$30</b></td></tr><tr><td>Mainland users</td><td>Eligible users may borrow without a deposit through credit-based eligibility; non-return is handled under platform rules and may affect credit.</td></tr><tr><td>Hong Kong / international users</td><td>Deposit and payment follow the platform’s applicable rules.</td></tr><tr><td>Payment methods</td><td>Alipay (Mainland / Hong Kong), relevant WeChat payment methods, Octopus and other supported methods.</td></tr></tbody></table>`},
+        {id:"commission",title:"BD commission per successful deployment",body:`<h3>Yau Tsim Mong</h3><table><thead><tr><th>Installation</th><th>BD income</th></tr></thead><tbody><tr><td>Self-install + stand</td><td class="money">HK$600 / unit</td></tr><tr><td>Self-install + no stand</td><td class="money">HK$550 / unit</td></tr><tr><td>Company installation</td><td class="money">HK$400 / unit</td></tr></tbody></table><h3>Outside Yau Tsim Mong</h3><table><thead><tr><th>Installation</th><th>BD income</th></tr></thead><tbody><tr><td>Self-install + stand</td><td class="money">HK$400 / unit</td></tr><tr><td>Self-install + no stand</td><td class="money">HK$350 / unit</td></tr><tr><td>Company installation</td><td class="money">HK$200 / unit</td></tr></tbody></table><div class="quote">Self-installation earns a higher commission; company installation reduces commission by the corresponding installation cost.</div>`},
+        {id:"settlement",title:"Settlement and long-term income logic",body:`<div class="grid grid-2"><div class="feature"><b>Commission settlement</b><div class="small">Around 50% is paid within approximately 48 hours after the device is powered on, with the remaining amount settled after roughly 10 days of continuous operation as an anti-fraud control.</div></div><div class="feature"><b>Long-term income after 10+ units</b><div class="small">After reaching 10 or more promoted units, a BD may qualify for an additional long-term profit-share mechanism subject to the assessment requirements. The specific rate and eligibility are agreed separately.</div></div></div>`},
+        {id:"flexible",title:"Is there a fixed work schedule?",body:`<p class="lead">No fixed office hours and no minimum daily hours. Work can be arranged freely.</p><div class="pill-row"><span class="pill">After class</span><span class="pill">After work</span><span class="pill">Weekend field visits</span><span class="pill">Visit stores while out</span><span class="pill">Use your own merchant network</span></div><div class="quote">Work when you have time. Earnings are driven by successful deployments.</div><div class="note">Once a merchant signs, aim to install the same day or within 1–2 days to reduce drop-off risk.</div>`},
+        {id:"target",title:"Which stores should be prioritized?",body:`<p>Screen based on <b>footfall, dwell time, charging need and access to the decision maker.</b></p><table><thead><tr><th>Venue</th><th>Why it works</th></tr></thead><tbody><tr><td>Restaurants</td><td>Longer dining time</td></tr><tr><td>Bars</td><td>Long dwell time, heavy phone use</td></tr><tr><td>Cafés</td><td>Phone and work usage</td></tr><tr><td>KTV</td><td>Often 2–3+ hours</td></tr><tr><td>Internet cafés / esports venues</td><td>Long stays and ongoing phone use</td></tr><tr><td>Massage / SPA</td><td>Long dwell time</td></tr><tr><td>Party rooms</td><td>Groups and long sessions</td></tr><tr><td>Tourist-area merchants</td><td>Strong immediate charging need</td></tr><tr><td>Hotel-area merchants</td><td>High visitor concentration</td></tr><tr><td>Busy commercial / nightlife areas</td><td>High traffic and borrowing probability</td></tr></tbody></table>`},
+        {id:"avoid",title:"Which stores should generally be avoided?",body:`<div class="grid grid-2"><div class="feature"><b>Retail categories</b><ul><li>Ordinary community fruit shops (except suitable large chains with seating / rest areas)</li><li>Hardware shops</li><li>Building-material stores / market shops</li><li>Lighting shops</li><li>Furniture / whole-home customization stores</li><li>Bathroom / door & window stores</li><li>Small community fresh-food supermarkets (except large chains)</li><li>Stationery shops</li><li>Fishing-tackle shops</li><li>Florists</li></ul></div><div class="feature"><b>Automotive</b><ul><li>Auto-parts shops</li><li>Vehicle repair shops</li><li>Garages</li><li>Tire shops</li></ul><b>Selected personal services</b><ul><li>Small community nail / beauty shops, except larger long-dwell venues</li><li>Dry cleaners</li></ul></div><div class="feature"><b>Wholesale market stalls</b><ul><li>Garment wholesale stalls</li><li>Small-goods wholesale stalls</li></ul></div><div class="feature"><b>Construction-site surroundings</b><ul><li>Small convenience stalls at construction-site entrances</li></ul><p class="small">These venues usually have short dwell time, mismatched customer traffic or low borrowing probability.</p></div></div><div class="danger-note"><b>Decision rule:</b> Are there real customers? Do they stay? Is there a genuine charging need? Foot traffic alone is not enough.</div>`},
+        {id:"workflow",title:"End-to-end workflow",body:`<div class="timeline">
+<div class="step"><div class="step-no">1</div><div class="step-content"><b>Find a store</b>Assess footfall, dwell time, commercial value and charging need.</div></div>
+<div class="step"><div class="step-no">2</div><div class="step-content"><b>Check store resource / private lead</b>Confirm the store is not locked by another BD; add it to your private pool to protect your follow-up right.</div></div>
+<div class="step"><div class="step-no">3</div><div class="step-content"><b>Reach the decision maker</b>Avoid spending too much time only with frontline staff.</div></div>
+<div class="step"><div class="step-no">4</div><div class="step-content"><b>Present merchant value</b>Lead with advertising exposure, Keeta traffic, visitor convenience, merchant revenue share and no equipment purchase cost.</div></div>
+<div class="step"><div class="step-no">5</div><div class="step-content"><b>Record a 10–15 sec 360° venue video</b>Show storefront, both sides, interior and planned placement, then send it to the small review group.</div></div>
+<div class="step"><div class="step-no">6</div><div class="step-content"><b>Wait for approval</b>Usually about 5–10 minutes. @ the responsible person in the group if follow-up is needed. Only move into contracting after approval.</div></div>
+<div class="step"><div class="step-no">7</div><div class="step-content"><b>Complete the first contract and collect merchant data</b>The first copy is unstamped by our company. Once merchant information and signature are complete, bring it back to the company.</div></div>
+<div class="step"><div class="step-no">8</div><div class="step-content"><b>Collect the second stamped contract + equipment</b>The company prepares its information and stamp; the BD collects the formal second copy and the power-bank equipment.</div></div>
+<div class="step"><div class="step-no">9</div><div class="step-content"><b>Return to store: sign + install</b>The merchant completes / verifies Party B information on the second copy and signs. Then bind, power on and verify the device is online.</div></div>
+<div class="step"><div class="step-no">10</div><div class="step-content"><b>Each side keeps one contract; deployment complete</b>We keep one copy and the merchant keeps one. Commission is then settled under the standard rules.</div></div>
+</div>`},
+        {id:"private-pool",title:"What is the private-lead pool?",body:`<p>The backend protects merchant ownership so multiple BDs do not simultaneously claim the same store.</p><div class="grid grid-2"><div class="feature"><b>If you add the store first</b><div class="small">You receive a protection period. Current execution may be around 10–40 days, but always use the actual backend display.</div></div><div class="feature"><b>If someone else already owns it</b><div class="small">Another BD is already following the store. Do not bypass the ownership rule.</div></div></div><div class="quote">Before investing serious time in a store, check the backend first.</div>`},
+        {id:"decision-maker",title:"Why must you reach the owner?",body:`<p class="lead">The biggest difficulty is usually not the product itself, but whether you can reach the person who actually has decision-making authority.</p><div class="grid grid-2"><div class="feature"><b>Low-efficiency approach</b><div class="small">Spending a long time with staff or cashiers who have no authority to sign and little incentive to pass the proposal on.</div></div><div class="feature"><b>High-efficiency approach</b><div class="small">Identify the owner, store manager or real decision maker early. Use a business card or leaflet when needed, and keep WhatsApp / WeChat contact for follow-up.</div></div></div>`},
+        {id:"script",title:"Recommended opening script",body:`<p>Lead with <b>free exposure + Keeta traffic + merchant revenue share + customer convenience</b>.</p><div class="script">“Hi, we handle Keeta merchant partnerships. We currently have a program that can add exposure for your store at no equipment purchase cost, while the store can also receive a share of power-bank rental revenue. Could I speak with the owner or the person in charge for two minutes?”
+
+With the owner:
+“The equipment is placed free of charge. Platform operations and maintenance are handled by us. The store only needs to provide a location and power. Rental revenue can be shared with the store, and Keeta’s food-delivery and visitor ecosystem can also add store visibility.”</div>`},
+        {id:"review",title:"Venue video review before contracting",body:`<p>Once the owner shows interest, complete the venue review first, then move into the contract process.</p><div class="grid grid-3"><div class="feature"><b>Video length</b><div class="small">About 10–15 seconds. Record continuously, clearly and steadily.</div></div><div class="feature"><b>Review speed</b><div class="small">Usually about <b>5–10 minutes</b>. A small group chat will be created for communication, and you can @ the responsible person there when follow-up is needed.</div></div><div class="feature"><b>Must show</b><ul><li>Storefront</li><li>Left-side surroundings</li><li>Right-side surroundings</li><li>Interior</li><li>Planned device placement</li></ul></div></div><div class="danger-note"><b>Not every store is approved.</b> Only proceed with the contract after the venue passes review.</div>`},
+        {id:"contract",title:"How to sign the contract: complete two-copy workflow",body:`<p class="lead">The contract process is a key part of merchant deployment. Do not simply leave a contract with the merchant at the first visit; follow the two-copy workflow below.</p>
+<div class="quote">Approval → complete the first contract → bring it back to the company → collect the second contract with company details and stamp + equipment → return to the store for merchant signing and installation.</div>
+<h3>Confirm approval first</h3>
+<div class="grid grid-2"><div class="feature"><b>Review time</b><div class="small">After submitting the venue video, approval is usually completed within about <b>5–10 minutes</b>. A small group chat is created for communication; @ the responsible person there if follow-up is needed.</div></div><div class="feature"><b>Complete the contract only after approval</b><div class="small">The first contract given to the BD <b>does not carry the company stamp</b>. Once the store is approved, collect the merchant’s complete details and fill them in.</div></div></div>
+<h3>First contract: collect complete merchant information</h3>
+<table><thead><tr><th>Information to collect / complete</th><th>Purpose in the agreement</th></tr></thead><tbody>
+<tr><td><b>Legal merchant / company name</b></td><td>Used as Party B’s legal name.</td></tr>
+<tr><td><b>Business Registration number</b></td><td>Party B registration information. The merchant must provide valid corporate qualification or other required proof.</td></tr>
+<tr><td><b>Registered address</b></td><td>Party B registration / registered address.</td></tr>
+<tr><td><b>Email</b></td><td>Party B email for contact and system-related information.</td></tr>
+<tr><td><b>Contact number</b></td><td>Party B telephone number.</td></tr>
+<tr><td><b>Actual placement address</b></td><td>The store address where the equipment will actually be deployed.</td></tr>
+<tr><td><b>Store type</b></td><td>The agreement provides categories such as restaurant, bar, Chinese restaurant, hotel, entertainment venue or other.</td></tr>
+<tr><td><b>Equipment details</b></td><td>Keeta model / size, quantity and related placement information.</td></tr>
+<tr><td><b>Revenue-share percentage</b></td><td>The final cooperation percentage agreed by both parties.</td></tr>
+<tr><td><b>Bank account for settlement</b></td><td>Account name, bank account number and bank name for revenue-share payments.</td></tr>
+<tr><td><b>Authorized representative details</b></td><td>Name, title and signature of the authorized representative.</td></tr>
+</tbody></table>
+<div class="note"><b>Important:</b> The merchant should have control of, or lawful authorization for, the placement location. Supporting proof may be requested where needed.</div>
+<h3>How the two contract copies move</h3>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div class="step-content"><b>Take the first contract to the store</b>The first copy does not carry our company stamp. Once the merchant is interested, record the venue video and confirm approval.</div></div>
+<div class="step"><div class="step-no">2</div><div class="step-content"><b>Complete the merchant information</b>Collect and fill in the legal name, Business Registration, address, email, phone, placement address, bank details, authorized representative information and merchant signature.</div></div>
+<div class="step"><div class="step-no">3</div><div class="step-content"><b>Bring the first contract back to the company</b>The company prepares the formal contract based on the confirmed information and completes the company-information and stamping portion.</div></div>
+<div class="step"><div class="step-no">4</div><div class="step-content"><b>Collect the second stamped contract + equipment</b>The second copy already contains our company information and company stamp. The BD also collects the power-bank equipment for installation.</div></div>
+<div class="step"><div class="step-no">5</div><div class="step-content"><b>Return to the store: merchant completes / checks Party B details and signs</b>Give the second contract to the merchant, have the merchant complete or verify its own information and sign, then install the equipment onsite.</div></div>
+<div class="step"><div class="step-no">6</div><div class="step-content"><b>Two copies, one for each side</b>We keep one copy and the merchant keeps one copy.</div></div>
+</div>
+<p class="small">The agreement itself allows execution in counterparts, with each counterpart treated as an original. Operationally, this training uses two contract copies so that each side retains one.</p>`},
+        {id:"backend",title:"Create the store and bind the device",body:`<div class="grid grid-2"><div class="feature"><b>BD backend tasks</b><ul><li>Create the merchant store</li><li>Enter Business Registration details</li><li>Enter contact person, phone and email</li><li>Enter settlement bank-account information</li><li>Enter store / equipment placement address</li><li>Enter device quantity and cooperation revenue-share information</li><li>Scan and bind the actual equipment to the store</li></ul></div><div class="feature"><b>Merchant backend value</b><div class="small">After binding, the merchant can access revenue, store-device and withdrawal information through the relevant account. The agreement also recognizes the merchant system as a channel for confirming store name, equipment quantity, revenue share and other cooperation information.</div></div></div>`},
+        {id:"install",title:"Installation: self-install or company install",body:`<div class="grid grid-2"><div class="feature"><b>Option A: self-install</b><ul><li>Pick up / carry device</li><li>Place it in store</li><li>Connect power</li><li>Scan and bind store</li><li>Verify online status</li></ul><p class="small">Benefit: higher commission per unit.</p></div><div class="feature"><b>Option B: company installation</b><p>If transport or installation is inconvenient, the company can arrange deployment.</p><p class="small">Commission is paid at the company-install rate.</p></div></div>`},
+        {id:"aftercare",title:"Do BDs handle maintenance after installation?",body:`<p class="lead">Normally no. The part-time BD’s main responsibility is merchant acquisition and successful deployment.</p><div class="grid grid-3"><div class="feature"><b>Device faults</b><div class="small">Handled by operations / maintenance.</div></div><div class="feature"><b>Power-bank replenishment</b><div class="small">Handled through backend monitoring and operations.</div></div><div class="feature"><b>Power-off / offline</b><div class="small">Monitored centrally and followed up by operations.</div></div></div>`},
+        {id:"newbie",title:"Best way for a beginner to start",body:`<div class="timeline"><div class="step"><div class="step-no">A</div><div class="step-content"><b>Use warm contacts first</b>Friends’ stores, family contacts, places you already know.</div></div><div class="step"><div class="step-no">B</div><div class="step-content"><b>Complete one store</b>Do not assume you will close ten stores immediately. Learn one full cycle.</div></div><div class="step"><div class="step-no">C</div><div class="step-content"><b>Review the full process</b>Private lead, review, contract, store creation, install, settlement.</div></div><div class="step"><div class="step-no">D</div><div class="step-content"><b>Then scale cold outreach</b>Move into Mong Kok, Tsim Sha Tsui, Yau Ma Tei, tourist and F&B clusters.</div></div></div>`},
+        {id:"skills",title:"Three most important BD capabilities",body:`<div class="grid grid-3"><div class="feature"><b>1. Screen merchants well</b><div class="small">Not every store deserves your time.</div></div><div class="feature"><b>2. Reach decision makers</b><div class="small">Closing probability improves when you reach the owner.</div></div><div class="feature"><b>3. Explain value clearly</b><div class="small">Talk about the merchant’s benefits, not just the power bank.</div></div></div><h3>Four merchant questions</h3><table><tbody><tr><td>Do I need to pay?</td><td>No equipment purchase.</td></tr><tr><td>Do I need to manage it?</td><td>Platform handles maintenance, battery replenishment and monitoring.</td></tr><tr><td>Can I earn?</td><td>Yes, through rental revenue share.</td></tr><tr><td>What else do I gain?</td><td>Customer convenience, traveler-friendly service, Keeta ecosystem exposure, plus extra value such as merchant advertising and store benefits.</td></tr></tbody></table>`},
+        {id:"summary",title:"One-sentence project summary",body:`<div class="quote">We are not simply “selling power banks.” We identify suitable merchants, deploy Keeta power banks at no equipment purchase cost, help merchants receive rental revenue share and added exposure, and the part-time BD earns commission based on successful deployments.</div><div class="kpi-strip"><div class="kpi"><strong>Right store</strong><span>Screen first</span></div><div class="kpi"><strong>Owner</strong><span>Reach decision maker</span></div><div class="kpi"><strong>Value</strong><span>Traffic + revenue + service</span></div><div class="kpi"><strong>Fast deploy</strong><span>Approve, sign, install</span></div></div>`},
+        {id:"hr-copy",title:"Suggested HR recruitment description",body:`<div class="script">Role: Keeta Hong Kong Power Bank Part-time BD / Merchant Development
+
+The role is to identify suitable Hong Kong merchants for Keeta power-bank deployment, present the cooperation model to store owners, complete venue review, contracting and device installation.
+
+This is a flexible part-time role with no fixed office hours. Merchants do not need to purchase the equipment; the platform handles maintenance, while the merchant provides placement space and power and can receive rental revenue share. The BD is responsible for merchant acquisition and successful deployment.
+
+Current base commission can be up to about HK$600 per successfully self-installed unit with stand in Yau Tsim Mong, and up to about HK$400 outside Yau Tsim Mong. Company-installed deals are paid at the corresponding lower rate.
+
+The role suits people familiar with Hong Kong commercial areas, comfortable speaking with merchants, or with F&B / entertainment / retail merchant connections. Beginners can be trained and should start with warm merchant relationships first.</div>`},
+        {id:"compliance",title:"Messaging and compliance points",body:`<div class="grid grid-2"><div class="feature"><b>Do not present planned features as live</b><ul><li>Merchant daily free-use benefit: present as planned / expected</li><li>Three merchant ad exposures: future feature</li></ul></div><div class="feature"><b>Do not overpromise income</b><ul><li>Use current per-unit commission</li><li>Describe 10+ unit long-term share only as conditional under current policy</li><li>Do not promise fixed monthly income</li></ul></div><div class="feature"><b>Do not exceed revenue-share authority</b><div class="small">Use about 30% as the standard talking point unless special terms are formally approved.</div></div><div class="feature"><b>Verify deposit / payment / Octopus details</b><div class="small">Rules may vary by user, device or pilot stage. Use the latest mini-program, backend and actual device capability.</div></div></div>`}
+      ]
+    }
+  };
+
+  const app = document.getElementById('app');
+  let currentLang = 'zh-CN';
+
+  function render(lang){
+    currentLang = lang;
+    const d = DATA[lang];
+    document.documentElement.lang = lang;
+    document.title = d.meta.title;
+    document.getElementById('brandName').textContent = d.meta.brand;
+    document.getElementById('fullscreenText').textContent = d.meta.fullscreen;
+    document.getElementById('printText').textContent = d.meta.print;
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+
+    const visibleSections = d.sections.filter(s=>s.id!=="compliance" && s.id!=="hr-copy");
+    const toc = visibleSections.map((s,i)=>`<a href="#${s.id}">${String(i+1).padStart(2,'0')} · ${s.title}</a>`).join('');
+    const sections = visibleSections.map((s,i)=>`<section id="${s.id}" class="reveal"><div class="section-card"><div class="section-head"><div class="title-wrap"><div class="section-index">${i+1}</div><div><h2>${s.title}</h2>${s.lead?`<p class="lead">${s.lead}</p>`:''}</div></div></div>${s.body}</div></section>`).join('');
+    const metrics = d.heroMetrics.map(([n,l])=>`<div class="metric"><b>${n}</b><span>${l}</span></div>`).join('');
+    app.innerHTML = `
+      <section class="hero" id="top"><div class="hero-inner"><div><span class="eyebrow">${d.meta.eyebrow}</span><h1>${d.meta.title}</h1><p>${d.meta.subtitle}</p><div class="hero-actions"><a class="primary" href="#overview">${d.meta.start}</a><a class="secondary" href="#workflow">${d.meta.overview}</a></div></div><aside class="hero-card"><div style="display:flex;align-items:center;gap:16px;margin-bottom:14px"><img src="${LOGO}" alt="Keeta logo" class="hero-logo"><div><b style="font-size:20px;display:block;margin-bottom:4px">Keeta power bank</b><span style="color:var(--muted);font-size:14px">${d.meta.eyebrow}</span></div></div><b style="font-size:18px">${d.meta.overview}</b><div class="hero-metric">${metrics}</div></aside></div></section>
+      <div class="page"><nav class="toc"><div class="toc-title">${d.meta.toc}</div>${toc}</nav><main>${sections}</main></div>
+      <footer class="footer"><b>Keeta HK Power Bank · BD Training</b><br>${d.meta.footer}</footer>`;
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>render(btn.dataset.lang)));
+  document.getElementById('printBtn').addEventListener('click',()=>window.print());
+  document.getElementById('fullscreenBtn').addEventListener('click', async()=>{
+    try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen();}else{await document.exitFullscreen();}}catch(e){}
+  });
+  const topBtn=document.getElementById('topBtn');
+  const progressBar=document.getElementById('progressBar');
+
+  function setupPageEffects(){
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+    const sections=[...document.querySelectorAll('main section')];
+    const tocLinks=[...document.querySelectorAll('.toc a')];
+    const sectionObserver=new IntersectionObserver((entries)=>{
+      const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(!visible) return;
+      tocLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+visible.target.id));
+    },{rootMargin:'-18% 0px -68% 0px',threshold:[0,.1,.25,.5]});
+    sections.forEach(s=>sectionObserver.observe(s));
+  }
+
+  window.addEventListener('scroll',()=>{
+    topBtn.classList.toggle('show',window.scrollY>650);
+    const h=document.documentElement;
+    const max=h.scrollHeight-h.clientHeight;
+    progressBar.style.width=(max>0 ? (window.scrollY/max)*100 : 0)+'%';
+  },{passive:true});
+  topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  const originalRender=render;
+  render=function(lang){
+    originalRender(lang);
+    requestAnimationFrame(setupPageEffects);
+  };
+  render(currentLang);
+  </script>
+</body>
+</html>
